@@ -1,73 +1,83 @@
-# React + TypeScript + Vite
+<div align="center">
+  <h1 align="center">Kanban Task Board - Frontend</h1>
+  <p align="center">
+    A modern, highly interactive Kanban board application built with React, TypeScript, and Tailwind CSS. Featuring real-time collaboration and seamless drag-and-drop task management.
+  </p>
+  <p align="center">
+    <a href="https://kanban.shubhxmtechnologies.workers.dev" target="_blank"><strong>🚀 View Live Demo</strong></a>
+  </p>
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<hr />
 
-Currently, two official plugins are available:
+## ✨ Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Intuitive Drag and Drop:** Seamlessly move tasks between columns using `@dnd-kit` for a fluid user experience.
+- **Real-Time Collaboration:** Instant updates across all connected clients powered by `Socket.io`.
+- **Modern UI/UX:** Clean, responsive design implemented with `Tailwind CSS` and elegant icons from `Lucide React`.
+- **Robust State Management:** Lightweight and fast global state management utilizing `Zustand`.
+- **Type-Safe:** Built completely in `TypeScript` to ensure reliability and maintainability.
 
-## React Compiler
+## 📸 Screenshots
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+*(Replace the paths below with your actual screenshot images in a `screenshots` folder)*
 
-## Expanding the ESLint configuration
+| Kanban Board View | Task Details Modal |
+| :---: | :---: |
+| <img src="screenshots/board.png" alt="Kanban Board Screenshot" width="400"/> | <img src="screenshots/task.png" alt="Task Details Screenshot" width="400"/> |
+| *Seamless drag-and-drop task management* | *Detailed task view and editing* |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Technologies Used
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Framework:** React 19 + Vite
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **State Management:** Zustand
+- **Drag & Drop:** @dnd-kit (Core & Sortable)
+- **Real-Time:** Socket.io-client
+- **Routing:** React Router DOM
+- **HTTP Client:** Axios
+- **Notifications:** React Hot Toast
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🚀 Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Follow these steps to set up the project locally.
+
+### Prerequisites
+
+- Node.js (v18 or higher recommended)
+- npm or yarn
+
+### Installation
+
+1. **Navigate to the frontend directory:**
+   ```bash
+   cd frontend_kanban
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Configure Environment Variables:**
+   Create a `.env.local` (or `.env`) file in the root of the `frontend_kanban` directory and add the following configuration:
+   ```env
+   VITE_API_URL=http://localhost:5000
+   VITE_SOCKET_URL=http://localhost:5000
+   ```
+   *(Update these URLs if your backend is running on a different port/host during development)*
+
+4. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+   The application will be available at `http://localhost:5173`.
+
+## 📦 Build for Production
+
+To create a production-ready build, run:
+```bash
+npm run build
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+The compiled assets will be available in the `dist` directory.

@@ -115,6 +115,20 @@ export default function SettingsPage() {
               />
             </div>
 
+            <div className="flex flex-col gap-1.5">
+              <label htmlFor="prof-email" className="text-xs font-bold text-zinc-700 dark:text-zinc-300 uppercase tracking-wider">
+                Email
+              </label>
+              <input
+                id="prof-email"
+                type="email"
+                value={user.email}
+                readOnly
+                className={`h-10 w-full cursor-not-allowed ${inputClasses}`}
+                required
+              />
+            </div>
+
             <div className="flex items-center gap-3 mt-2">
               <button
                 type="submit"
