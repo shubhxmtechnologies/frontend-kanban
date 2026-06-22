@@ -3,6 +3,7 @@ import { Save, User, X } from "lucide-react"
 import useAuthStore from "../store/useAuthStore"
 import { updateMe } from "../api/authApi"
 import toast from "react-hot-toast"
+import Spinner from "../components/shared/Spinner"
 
 const avatarUrls = [
   "https://cdn.jsdelivr.net/gh/alohe/avatars/png/vibrent_6.png",
@@ -56,6 +57,10 @@ export default function SettingsPage() {
   }
 
   const inputClasses = "px-3 rounded-lg border border-zinc-200 dark:border-white/[0.08] bg-zinc-50 dark:bg-white/[0.04] text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-purple-500/40 focus:border-purple-500 transition-colors"
+
+  if (!user) {
+    return <Spinner showSideBar={false}/>
+  }
 
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-8 sm:py-10 max-w-4xl mx-auto flex flex-col gap-8 w-full">
